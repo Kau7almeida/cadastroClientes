@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciamento de Clientes</title>
+  <link rel="stylesheet" href="estilo.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <script defer src="clearInputs.js"></script>
+  <script defer src="getAllUsers.js"></script>
+  <script defer src="createUser.js"></script>
+  <script defer src="updateUser.js"></script>
+  <script defer src="deleteUser.js"></script>
+
+</head>
+
+<body>
+  <div class="container">
+
+    <h2>Cadastro de Clientes</h2>
+
+    <div class="form">
+      <input type="text" id="nome" placeholder="Digite o nome...">
+      <input type="email" id="email" placeholder="Digite o e-mail...">
+      <div class="botoes-form">
+        <button class="btn verde" id="salvar" onclick="createUser()">Salvar</button>
+        <button class="btn vermelho" id="cancelar" onclick="clearInput()">Cancelar</button>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-clientes">
+        <!-- Dados dinâmicos da API -->
+      </tbody>
+    </table>
+
+    <!-- Modal de Atualização -->
+    <div id="modalAtualizar" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="isBackModal()">&times;</span>
+        <h3>Atualizar Cliente</h3>
+        <input type="hidden" id="clienteIdAtualizar">
+        <input type="text" id="nomeAtualizar" placeholder="Novo nome...">
+        <input type="email" id="emailAtualizar" placeholder="Novo e-mail...">
+        <div class="botoes-form">
+          <button class="btn verde" onclick="updateUser()">Atualizar</button>
+          <button class="btn vermelho" onclick="isBackModal()">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
